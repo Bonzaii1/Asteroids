@@ -9,7 +9,7 @@ screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
 run = True
 
-player = Player(100, 100, 50 ,50)
+player = Player(100, 100)
 
 
 while run:
@@ -36,6 +36,8 @@ while run:
         player.move("left")
     elif key[pygame.K_d] and player.x < SCREEN_WIDTH - player.w:
         player.move("right")
+
+    
         
 
     for event in pygame.event.get():
