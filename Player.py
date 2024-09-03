@@ -14,9 +14,10 @@ class Player:
         self.color = (0,0,255)
         self.player = pygame.image.load('./assets/ship.png')
         self.player = pygame.Surface.convert_alpha(self.player)
-        self.player = pygame.transform.scale(self.player,(self.player.get_width() / 8, self.player.get_height() / 8) )
+        self.player = pygame.transform.scale(self.player,(self.player.get_width() / 12, self.player.get_height() / 12) )
         self.w = self.player.get_width()
         self.h = self.player.get_height()
+        self.angle = 0
 
     def move(self, dir):
         if dir == "up":
@@ -48,3 +49,15 @@ class Player:
             self.x -= self.speed
             self.y += self.speed
         
+
+    def rotate(self, dir):
+        
+        if dir == "right":
+            self.angle -= .1
+            
+        else:
+            self.angle += .1
+
+        
+        
+

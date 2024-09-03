@@ -16,7 +16,6 @@ while run:
 
     screen.fill(pygame.Color(0,0,0))
 
-    screen.blit(player.player, (player.x, player.y))
 
     key = pygame.key.get_pressed()
 
@@ -38,7 +37,17 @@ while run:
         player.move("right")
 
     
-        
+
+    if key[pygame.K_RIGHT]:
+        player.rotate("right")
+    elif key[pygame.K_LEFT]:
+        player.rotate("left")
+
+
+       
+    rot_img = pygame.transform.rotate(player.player, player.angle)
+    print(player.angle)
+    screen.blit(rot_img, (player.x - (rot_img.get_width() / 2), player.y - (rot_img.get_height() / 2)))
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
